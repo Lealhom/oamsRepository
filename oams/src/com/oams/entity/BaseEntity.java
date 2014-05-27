@@ -5,7 +5,7 @@ package com.oams.entity;
  * date:2014-05-27
  * 所有实体类的父类
  */
-public abstract class AbstractEntity {
+public abstract class BaseEntity {
 	private String id;
 
 	public String getId() {
