@@ -14,5 +14,10 @@
            http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 	<context:annotation-config />
 	<context:component-scan base-package="com.oams" />
+	
+	
+	<!-- 	现在常用的开源数据连接池主要有c3p0,dbcp和proxool三种,Hibernate推荐使用c3p0
+	     	三种连接池详解请参考：http://blog.csdn.net/zheng2008hua/article/details/6772484
+	 -->
 
 </beans>

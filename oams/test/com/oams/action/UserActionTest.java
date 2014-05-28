@@ -1,9 +1,11 @@
 package com.oams.action;
 
-import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.oams.entity.User;
+import com.oams.service.UserService;
 
 
 public class UserActionTest {
@@ -13,8 +15,10 @@ public class UserActionTest {
 
   @Test
   public void testAdd() {
-    UserAction u = new UserAction();
-    u.add();
+	  	ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("beans.xml");
+		UserAction userAction = (UserAction)ctx.getBean("userAction");
+		userAction.add();
+		ctx.destroy();
   }
 
 }
