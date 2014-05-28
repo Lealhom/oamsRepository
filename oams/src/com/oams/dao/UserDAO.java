@@ -1,5 +1,8 @@
 package com.oams.dao;
 
-public interface UserDAO {
+import java.util.List;
 
+import com.oams.entity.User;
+
+public interface UserDAO extends BaseDAO<User>{
 }

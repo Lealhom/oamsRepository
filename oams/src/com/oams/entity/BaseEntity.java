@@ -3,7 +3,7 @@ package com.oams.entity;
  * 
  * @author Lealhom
  * date:2014-05-27
- * 所有实体类的父类
+ * 所有实体类的基类
  */
 public abstract class BaseEntity {
 	private String id;

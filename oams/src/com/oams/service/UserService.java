@@ -1,5 +1,7 @@
 package com.oams.service;
 
-public class UserService {
+import com.oams.entity.User;
 
+public interface UserService extends BaseService<User> {
+	
 }
