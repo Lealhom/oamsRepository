@@ -3,6 +3,7 @@
     <wb-module deploy-name="oams">
         <wb-resource deploy-path="/" source-path="/WebRoot"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
         <property name="context-root" value="/oams"/>
         <property name="java-output-path" value="/oams/WebRoot/WEB-INF/classes"/>
     </wb-module>

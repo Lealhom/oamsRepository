@@ -5,8 +5,6 @@ import com.oams.entity.User;
 
 @SuppressWarnings("unchecked")
 public class UserDAOImpl extends BaseDAOImpl<User> implements UserDAO{
-
-
 	
 }
 

@@ -21,6 +21,7 @@ public abstract class BaseDAOImpl<T> implements BaseDAO<T> {
 	public BaseDAOImpl(){ 
 		ParameterizedType ps=(ParameterizedType) this.getClass().getGenericSuperclass();
 		this.entity=(Class<T>)ps.getActualTypeArguments()[0];
+
 	}
 	
 	protected Session getSession(){
@@ -28,7 +29,7 @@ public abstract class BaseDAOImpl<T> implements BaseDAO<T> {
 	}
 	
 	public void save(Object entity) {
-		// TODO Auto-generated method stub
+		System.out.println(entity.toString()+" saved!");
 		
 	}
 
