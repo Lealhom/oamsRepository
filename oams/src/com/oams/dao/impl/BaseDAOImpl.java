@@ -1,20 +1,29 @@
 package com.oams.dao.impl;
 
 import java.lang.reflect.ParameterizedType;
-import java.util.Collections;
 import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.oams.dao.BaseDAO;
 @SuppressWarnings("unchecked")
+@Repository
 public abstract class BaseDAOImpl<T> implements BaseDAO<T> {
 
+	private HibernateTemplate hibernateTemplate;
+
+	public HibernateTemplate getHibernateTemplate() {
+		return hibernateTemplate;
+	}
+	
 	@Resource
-	private SessionFactory sessionFactory;
+	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
+		this.hibernateTemplate = hibernateTemplate;
+	}
 	
 	private Class<T> entity;
 	//利用发射技术得到泛型T的实际类型
@@ -24,13 +33,10 @@ public abstract class BaseDAOImpl<T> implements BaseDAO<T> {
 
 	}
 	
-	protected Session getSession(){
-		return sessionFactory.getCurrentSession();	
-	}
 	
 	public void save(Object entity) {
 		System.out.println(entity.toString()+" saved!");
-		
+		hibernateTemplate.save(entity);
 	}
 
 	public void update(Object entity) {

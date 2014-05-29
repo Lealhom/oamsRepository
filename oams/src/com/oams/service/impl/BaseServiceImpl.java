@@ -7,7 +7,7 @@ import com.oams.dao.BaseDAO;
 import com.oams.service.BaseService;
 
 @SuppressWarnings("unchecked")
-public abstract class BaseServiceImpl<T> implements BaseService<T>{
+public class BaseServiceImpl<T> implements BaseService<T>{
     private BaseDAO<T> baseDAO;
     private Class<T> entity;
     
