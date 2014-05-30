@@ -1,5 +1,6 @@
 package com.oams.dao.impl;
 
+import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -23,8 +24,7 @@ public class BaseDAOImpl<T> implements BaseDAO<T> {
     this.hibernateTemplate = hibernateTemplate;
   }
 
-  private Class<T> entity;
-
+  private static String className;
   
 // 利用发射技术得到泛型T的实际类型
 //  public BaseDAOImpl() {
@@ -33,10 +33,9 @@ public class BaseDAOImpl<T> implements BaseDAO<T> {
 //  }
 
   public BaseDAOImpl(){
-    
   }
   public BaseDAOImpl(Class<T> entity) {
-    this.entity = entity;
+    className = entity.getName();
   }
 
   public void save(Object entity) {
@@ -45,24 +44,23 @@ public class BaseDAOImpl<T> implements BaseDAO<T> {
   }
 
   public void update(Object entity) {
-    // TODO Auto-generated method stub
+    hibernateTemplate.update(entity);
   }
 
-  public void delete(String id) {
-    // TODO Auto-generated method stub
+  public void delete(Object entity) {
+    hibernateTemplate.delete(entity);
   }
 
   public void deleteByIds(String[] ids) {
-    // TODO Auto-generated method stub
   }
 
   public T getById(String id) {
-    // TODO Auto-generated method stub
+    hibernateTemplate.find(id);
     return null;
   }
 
-  public List findAll() {
-    // TODO Auto-generated method stub
-    return null;
+  public List<T> findAll() {
+    List<T> list = hibernateTemplate.find(" from "+className);
+    return list;
   }
 }

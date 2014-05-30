@@ -1,6 +1,8 @@
 package com.oams.action;
 
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.slf4j.Logger;
@@ -31,11 +33,25 @@ public class UserAction extends ActionSupport{
 	 * 
 	 */
 	private static final long serialVersionUID = 4059566892230982927L;
-	public String add(){
-	    User user = new User();
+	public String add(User user){
 	    userService.save(user);
 		return SUCCESS;
 	}
+	public String update(User user){
+	  userService.update(user);
+	  return SUCCESS;
+	}
+	public String delete(User user){
+      userService.delete(user);
+      return SUCCESS;
+    }
+	public String list(){
+      List<User> users = userService.findAll();
+      for(int i=0;i<users.size();i++){
+        System.out.println(users.get(i).getId());
+      }
+      return SUCCESS;
+    }
 //  public UserService getUserService() {
 //    return userService;
 //  }

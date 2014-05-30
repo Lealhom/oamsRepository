@@ -33,8 +33,8 @@ public class BaseServiceImpl<T> implements BaseService<T>{
     public  void update(T entity){
       baseDAO.update(entity);
     }
-    public  void delete(String id){
-      baseDAO.delete(id);
+    public  void delete(T entity){
+      baseDAO.delete(entity);
     }
     public  void deleteByIds(String ids[]){
       baseDAO.deleteByIds(ids);
