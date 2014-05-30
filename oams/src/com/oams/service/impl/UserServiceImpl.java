@@ -7,7 +7,4 @@ import com.oams.service.UserService;
 
 @Service("userService")
 public class UserServiceImpl extends BaseServiceImpl<User> implements UserService{
-  public UserServiceImpl(){
-    super(User.class);
-  }
 }

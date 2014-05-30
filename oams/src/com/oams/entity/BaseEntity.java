@@ -2,11 +2,9 @@ package com.oams.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import org.dom4j.tree.AbstractEntity;
 import org.hibernate.annotations.GenericGenerator;
 
 /**

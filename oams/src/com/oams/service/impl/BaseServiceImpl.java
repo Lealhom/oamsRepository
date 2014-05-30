@@ -9,12 +9,10 @@ import org.springframework.stereotype.Service;
 import com.oams.dao.BaseDAO;
 import com.oams.service.BaseService;
 
-@SuppressWarnings("unchecked")
 @Service
 public class BaseServiceImpl<T> implements BaseService<T>{
     @Resource
     private BaseDAO<T> baseDAO;
-    private Class<T> entity;
     
     public BaseDAO<T> getBaseDAO() {
       return baseDAO;
@@ -22,9 +20,6 @@ public class BaseServiceImpl<T> implements BaseService<T>{
     
     public BaseServiceImpl(){
       
-    }
-    public BaseServiceImpl(Class<T> entity) {
-      this.entity = entity;
     }
     
     public  void save(T entity){

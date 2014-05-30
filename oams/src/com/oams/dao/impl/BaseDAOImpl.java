@@ -1,6 +1,5 @@
 package com.oams.dao.impl;
 
-import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -13,25 +12,10 @@ import com.oams.dao.BaseDAO;
 @SuppressWarnings("unchecked")
 @Repository ("baseDAO")
 public class BaseDAOImpl<T> implements BaseDAO<T> {
-  
-  private HibernateTemplate hibernateTemplate;
-
-  public HibernateTemplate getHibernateTemplate() {
-    return hibernateTemplate;
-  }
-  @Resource
-  public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
-    this.hibernateTemplate = hibernateTemplate;
-  }
-
   private static String className;
+  @Resource
+  private HibernateTemplate hibernateTemplate;
   
-// 利用发射技术得到泛型T的实际类型
-//  public BaseDAOImpl() {
-//    ParameterizedType ps = (ParameterizedType) this.getClass().getGenericSuperclass();
-//    this.entity = (Class<T>) ps.getActualTypeArguments()[0];
-//  }
-
   public BaseDAOImpl(){
   }
   public BaseDAOImpl(Class<T> entity) {
@@ -39,7 +23,6 @@ public class BaseDAOImpl<T> implements BaseDAO<T> {
   }
 
   public void save(Object entity) {
-    System.out.println(entity.toString() + " saved!");
     hibernateTemplate.save(entity);
   }
 
