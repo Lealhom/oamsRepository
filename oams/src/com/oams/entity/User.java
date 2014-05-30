@@ -1,16 +1,23 @@
 package com.oams.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
+@Table(name = "t_user")
 public class User{
 	private String id;
 	private String username;
 	private String password;
 	@Id
-	@GeneratedValue
+	@GeneratedValue(generator = "system-uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid")
+    @Column(length = 32)
 	public String getId() {
 		return id;
 	}
