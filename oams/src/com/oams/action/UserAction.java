@@ -1,25 +1,18 @@
 package com.oams.action;
 
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
 import javax.annotation.Resource;
 
-import org.apache.log4j.helpers.LogLog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.oams.entity.User;
 import com.oams.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
 @Controller
+@Scope("prototype")
 public class UserAction extends ActionSupport{
 	/*	
 	 *  @Resource(name="xxx")，默认ByName，按Name找不着则ByType，如果找到多个，则会报错
@@ -31,7 +24,7 @@ public class UserAction extends ActionSupport{
 	 *  
 	 *  @Inject与@Autowired类似，不过不属于spring的注解，导入的是 import javax.inject.Inject;
 	 */
-	@Resource
+    @Resource
 	private UserService userService;
 	private static Logger logger = LoggerFactory.getLogger(UserAction.class);
 	/**
@@ -39,12 +32,16 @@ public class UserAction extends ActionSupport{
 	 */
 	private static final long serialVersionUID = 4059566892230982927L;
 	public String add(){
-		System.out.println(userService);
-	    logger.error("添加用户失败");
 	    User user = new User();
-	    user.setId("123456");
 	    userService.save(user);
 		return SUCCESS;
 	}
+//  public UserService getUserService() {
+//    return userService;
+//  }
+//  @Resource
+//  public void setUserService(UserService userService) {
+//    this.userService = userService;
+//  }
 	
 }

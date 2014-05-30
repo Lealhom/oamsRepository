@@ -14,12 +14,7 @@
            http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 	<context:annotation-config />
 	<context:component-scan base-package="com.oams" />
-	
-	
-	<!-- 	现在常用的开源数据连接池主要有c3p0,dbcp和proxool三种,Hibernate推荐使用c3p0
-	     	三种连接池详解请参考：http://blog.csdn.net/zheng2008hua/article/details/6772484
-	 -->
-<bean
+	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<value>classpath:jdbc.properties</value>
@@ -38,6 +33,14 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
+		<!-- 
+		<property name="annotatedClasses">
+			<list>
+				<value>com.bjsxt.model.User</value>
+				<value>com.bjsxt.model.Log</value>
+			</list>
+		</property>
+		 -->
 		 <property name="packagesToScan">
 			<list>
 				<value>com.oams.entity</value>
@@ -45,9 +48,11 @@
 		</property>
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
 				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hbm2ddl.auto">create</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
 		</property>
 	</bean>
@@ -66,10 +71,9 @@
 
 	<tx:advice id="txAdvice" transaction-manager="txManager">
 		<tx:attributes>
-			<tx:method name="save*" propagation="REQUIRED"/>
+			<tx:method name="save" propagation="REQUIRED"/>
 		</tx:attributes>
 	</tx:advice>
-
 	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
