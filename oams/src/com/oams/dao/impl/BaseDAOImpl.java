@@ -14,7 +14,7 @@ import com.oams.dao.BaseDAO;
 public class BaseDAOImpl<T> implements BaseDAO<T> {
   private static String className;
   @Resource
-  private HibernateTemplate hibernateTemplate;
+  protected HibernateTemplate hibernateTemplate;
   
   public BaseDAOImpl(){
   }

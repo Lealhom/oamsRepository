@@ -4,18 +4,16 @@
 	"http://struts.apache.org/dtds/struts-2.1.dtd">
 
 <struts>
-
-	<package name="registration" extends="struts-default">
-
-		<action name="u" class="u">
-
-			<result name="success">/registerSuccess.jsp</result>
-			<result name="fail">/registerFail.jsp</result>
-			<result name="list">/userlist.jsp</result>
-			<result name="load">/user.jsp</result>
-
+	<constant name="struts.devMode" value="true"></constant>
+	<constant name="struts.i18n.encoding" value="GBK" />
+	<constant name="struts.convention.result.path" value="/" />
+	<constant name="struts.convention.package.locators" value="action" />
+	<constant name="struts.convention.package.locators.basePackage" value="com.oams.action" />
+<!-- 	<package name="user" extends="struts-default" >
+		<action name="login" class="com.oams.action.UserAction">
+			<result name="success">/index.jsp</result>
 		</action>
-	</package>
+	</package> -->
 
 
 </struts>

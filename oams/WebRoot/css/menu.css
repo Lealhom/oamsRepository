@@ -1,0 +1,131 @@
+@CHARSET "UTF-8";
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Tahoma, Simsun;
+}
+
+.sv3 dl,.sv3 dt,.sv3 dd {
+	padding: 0;
+	margin: 0;
+}
+
+.sv3 {
+	width: 147px;
+	border: none;
+	margin: 0 auto;
+}
+
+.sv3 dl {
+	width: 147px;
+	background: #EDF5FF;
+	overflow: hidden;
+}
+
+.sv3 dt {
+	padding: 5px;
+	line-height: 15px;
+	color: #15428b;
+	font-size: 12px;
+	background: url(../images/main_34.gif) no-repeat;
+	position: relative;
+	cursor: pointer;
+}
+
+.panel-title {
+	padding-left: 0px;
+	color: #000;
+	text-align:center;
+}
+
+.panel-tool {
+	position: absolute;
+	right: 5px;
+	top: 4px;
+}
+
+.panel-tool-collapse {
+	display: block;
+	float: right;
+	width: 16px;
+	height: 16px;
+	margin-left: 2px;
+	background: url(../images/spinner_arrow_up.gif) no-repeat 3px 6px;
+	cursor: pointer;
+	opacity: 0.6;
+	filter: alpha(opacity =   60);
+}
+
+.sv3 dl.on .panel-title {
+	font-weight: bold;
+}
+
+.sv3 dl.on .panel-tool-collapse {
+	background: url(../images/spinner_arrow_down.gif) no-repeat 3px 6px;
+}
+
+.sv3 dd {
+	color: #333;
+	font-size: 12px;
+	line-height: 1.5em;
+	padding: 1px 0 4px;
+	border-left: 1px solid #a6d0e7;
+	border-right: 1px solid #a6d0e7;
+}
+
+/*
+.sv3 dd a:link,
+.sv3 dd a:visited,
+.sv3 dd a:hover,
+.sv3 dd a:active { color:#333; display:block; text-align:right;}   */
+.sv3 dl dd {
+	display: none;
+}
+
+.sv3 dl.on dd {
+	display: block;
+}
+
+ul.menu-wrap,ul.menu_wrap li {
+	margin: 0;
+	padding: 0;
+}
+
+.menu-wrap,.menu_wrap li {
+	list-style: none;
+}
+
+ul.menu-wrap li {
+	list-style-type: none;
+	height: 25px;
+	margin: 3px 0 0;
+}
+
+ul.menu-wrap li a {
+	display: block;
+	height: 16px;
+	line-height: 16px;
+	padding: 5px 0 4px 10px;
+	overflow: hidden;
+	color: #3A3A3A;
+	text-decoration: none;
+}
+
+ul.menu-wrap li a img {
+	border: none;
+	margin: -2px 5px 0;
+	padding: 0;
+	vertical-align: middle;
+}
+
+ul.menu-wrap li a:hover {
+	width:150px;
+	background: url(../images/tab_bg.gif) no-repeat;
+	color: #000;
+}
+
+ul.menu-wrap li a.selected {
+	background: url(../images/tab_bg.gif) no-repeat;
+	color: #000;
+}

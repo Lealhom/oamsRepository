@@ -2,9 +2,13 @@ package com.oams.action;
 
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.apache.struts2.convention.annotation.Result;
+import org.apache.struts2.convention.annotation.Results;
+import org.apache.struts2.interceptor.SessionAware;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
@@ -12,10 +16,14 @@ import org.springframework.stereotype.Controller;
 
 import com.oams.entity.User;
 import com.oams.service.UserService;
-import com.opensymphony.xwork2.ActionSupport;
 @Controller
 @Scope("prototype")
-public class UserAction extends ActionSupport{
+@Results({
+			@Result(name = "loginSuccess", location = "main.html"),
+			@Result(name = "loginFail", location = "login.jsp"),
+			
+		 })
+public class UserAction extends BaseAction<User> implements SessionAware{
 	/*	
 	 *  @Resource(name="xxx")，默认ByName，按Name找不着则ByType，如果找到多个，则会报错
 	 * 
@@ -28,12 +36,30 @@ public class UserAction extends ActionSupport{
 	 */
     @Resource
 	private UserService userService;
+    private Map<String, Object> session;
+    private User entity = new User();
+    
 	private static Logger logger = LoggerFactory.getLogger(UserAction.class);
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 4059566892230982927L;
+	
+	public String login(){
+		String username = entity.getUsername();
+		String password = entity.getPassword();
+		User user = userService.login(username,password);
+		if(user!=null){
+			System.out.println(user.getUsername());
+			System.out.println(user.getPassword());
+			session.put("username", user.getUsername());
+			//session.remove("loginMsg");
+		}else{
+			session.put("loginMsg", "用户名或密码错误");
+			return "loginFail";
+		}
+		
+		return "loginSuccess";
+	}
 	public String add(User user){
+		
 	    userService.save(user);
 		return SUCCESS;
 	}
@@ -52,12 +78,10 @@ public class UserAction extends ActionSupport{
       }
       return SUCCESS;
     }
-//  public UserService getUserService() {
-//    return userService;
-//  }
-//  @Resource
-//  public void setUserService(UserService userService) {
-//    this.userService = userService;
-//  }
-	
+	public User getModel() {
+		return entity;
+	}
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
 }
