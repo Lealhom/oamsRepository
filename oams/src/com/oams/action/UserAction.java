@@ -1,8 +1,17 @@
 package com.oams.action;
 
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 import javax.annotation.Resource;
 
+import org.apache.log4j.helpers.LogLog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -37,4 +46,5 @@ public class UserAction extends ActionSupport{
 	    userService.save(user);
 		return SUCCESS;
 	}
+	
 }
