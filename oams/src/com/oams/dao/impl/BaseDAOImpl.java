@@ -30,7 +30,6 @@ public abstract class BaseDAOImpl<T> implements BaseDAO<T> {
 	
 	public void save(Object entity) {
 		System.out.println(entity.toString()+" saved!");
-		
 	}
 
 	public void update(Object entity) {
