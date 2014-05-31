@@ -23,7 +23,7 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 <link href="css/login.css" type=text/css rel=stylesheet>
-<script src="js/jquery-1.7.1.js" type="text/javascript"></script>
+<script src="js/jquery-1.7.2.js" type="text/javascript"></script>
 </head>
 <script type="text/javascript">
 function login(){

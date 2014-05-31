@@ -30,7 +30,7 @@
 		<dd>
 			<ul class="menu-wrap">
 					<li>
-							<a href="manage_user.jsp" style="padding-left: 20px;" target="rightFrame" >
+							<a href="jsp/user.jsp" style="padding-left: 20px;" target="rightFrame" >
 								<img src="images/icons/asterisk_orange.png"/>用户管理
 							</a>
 					</li>
