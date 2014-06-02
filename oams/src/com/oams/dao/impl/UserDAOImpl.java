@@ -9,9 +9,6 @@ import com.oams.entity.User;
 
 @Component
 public class UserDAOImpl extends BaseDAOImpl<User> implements UserDAO {
-	public UserDAOImpl() {
-		super(User.class);
-	}
 
 	public User getUser(String username, String password) {
 		System.out.println("from User user where user.username='"+username+"' and password='"+password+"'" );

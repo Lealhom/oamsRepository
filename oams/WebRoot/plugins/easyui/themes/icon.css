@@ -1,3 +1,12 @@
+.icon-user{
+	background:url('icons/user.png') no-repeat;
+}
+.icon-panel{
+	background:url('icons/panel.png') no-repeat;
+}
+.icon-theme{
+	background:url('icons/theme.png') no-repeat;
+}
 .icon-blank{
 	background:url('icons/blank.gif') no-repeat;
 }

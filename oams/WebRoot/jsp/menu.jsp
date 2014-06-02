@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<base href="<%=basePath%>">
-		<title>用户管理</title>
+		<title>菜单管理</title>
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
 		<meta http-equiv="expires" content="0">
@@ -44,7 +44,7 @@
 			// 生成表格
 			$('#table').datagrid({
 				// 表格的标题
-				title:'用户管理',
+				title:'菜单管理',
 				// 表格标题前面的图标
 				iconCls:'icon-save',
 				// 宽度
@@ -54,7 +54,7 @@
 				// 窗口是否可以收缩
 				collapsible:true,
 				// 请求数据的url
-				url:'jsp/datagrid_data1.json',
+				url:'menu!list.action',
 				// 行阴影，但目前看没有效果
 				striped:true,
 				// 拍序列
@@ -71,8 +71,11 @@
 				]],
 				// 标题
 				columns:[[
-					{title:'用户名',field:'username',width:350,align:'center',fit:true},
-					{title:'密码',field:'password',width:350,align:'center'}
+					{title:'id',field:'id',width:150,align:'center',hidden:true},
+					{title:'菜单名称',field:'name',width:150,align:'center',fit:true},
+					{title:'菜单地址',field:'address',width:150,align:'center'},
+					{title:'菜单图标',field:'icon',width:150,align:'center'},
+					{title:'菜单序号',field:'orderNO',width:150,align:'center'}
 				]],
 				// 待选分页数据条数
 				pageList : [5,10,20],  

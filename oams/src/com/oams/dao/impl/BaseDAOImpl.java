@@ -1,5 +1,6 @@
 package com.oams.dao.impl;
 
+import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -10,16 +11,14 @@ import org.springframework.stereotype.Repository;
 import com.oams.dao.BaseDAO;
 
 @SuppressWarnings("unchecked")
-@Repository ("baseDAO")
 public class BaseDAOImpl<T> implements BaseDAO<T> {
-  private static String className;
+  private String className;
   @Resource
   protected HibernateTemplate hibernateTemplate;
-  
+  private Class<T> entityType;
   public BaseDAOImpl(){
-  }
-  public BaseDAOImpl(Class<T> entity) {
-    className = entity.getName();
+	  ParameterizedType ps=(ParameterizedType) this.getClass().getGenericSuperclass();
+	  this.entityType=(Class<T>)ps.getActualTypeArguments()[0];
   }
 
   public void save(Object entity) {
@@ -41,9 +40,8 @@ public class BaseDAOImpl<T> implements BaseDAO<T> {
     hibernateTemplate.find(id);
     return null;
   }
-
   public List<T> findAll() {
-    List<T> list = hibernateTemplate.find(" from "+className);
+    List<T> list = hibernateTemplate.find(" from "+entityType.getSimpleName());
     return list;
   }
 }
