@@ -31,8 +31,22 @@ public class MenuAction extends BaseAction<Menu> implements SessionAware{
     private JSONObject data;
 	private static Logger logger = LoggerFactory.getLogger(MenuAction.class);
 	private static final long serialVersionUID = 4059566892230982927L;
-	
-	public String add(){
+	  private int page;
+	  private int rows;
+	public int getPage() {
+      return page;
+    }
+    public void setPage(int page) {
+      this.page = page;
+    }
+    
+    public int getRows() {
+      return rows;
+    }
+    public void setRows(int rows) {
+      this.rows = rows;
+    }
+  public String add(){
 		menuService.save(entity); 
 		return SUCCESS;
 	}
@@ -45,6 +59,8 @@ public class MenuAction extends BaseAction<Menu> implements SessionAware{
       return SUCCESS;
     }
 	public String list(){
+	  System.out.println(page); 
+	  System.out.println(rows);
 		//http://www.cnblogs.com/huozhicheng/archive/2011/09/27/2193605.html
       List<Menu> menus = menuService.findAll();
       data = ListToJson(menus);

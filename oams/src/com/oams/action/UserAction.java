@@ -19,7 +19,7 @@ import com.oams.service.UserService;
 @Controller
 @Scope("prototype")
 @Results({
-			@Result(name = "loginSuccess", location = "main.html"),
+			@Result(name = "loginSuccess", location = "index.jsp"),
 			@Result(name = "loginFail", location = "login.jsp"),
 			
 		 })
