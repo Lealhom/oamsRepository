@@ -27,12 +27,12 @@ public class UserActionTest {
         user.setUsername("用户名");
 		userAction.add(user);
 		//修改
-		user.setUsername("用户名123");
+		user.setUsername("用户名123456");
 		userAction.update(user);
 		//删除
-		userAction.delete(user);
+		//userAction.delete(user);
 		//查询
-		userAction.list();
+		//userAction.list();
 		ctx.destroy();
 		
 		

@@ -38,8 +38,12 @@ public class UserServiceImpl  implements UserService{
 		// TODO Auto-generated method stub
 		return null;
 	}
-	public List<User> findAll() {
+	public List<User> findAll(int page,int pageSize) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	public int getCount() {
+		return userDAO.getCount();
+	}
+
 }

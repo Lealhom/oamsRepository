@@ -1,7 +1,6 @@
 package com.oams.action;
 
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -28,27 +27,11 @@ public class MenuAction extends BaseAction<Menu> implements SessionAware{
 	private MenuService menuService;
     private Map<String, Object> session;
     private Menu entity = new Menu();
-    private JSONObject data;
 	private static Logger logger = LoggerFactory.getLogger(MenuAction.class);
 	private static final long serialVersionUID = 4059566892230982927L;
-	  private int page;
-	  private int rows;
-	public int getPage() {
-      return page;
-    }
-    public void setPage(int page) {
-      this.page = page;
-    }
-    
-    public int getRows() {
-      return rows;
-    }
-    public void setRows(int rows) {
-      this.rows = rows;
-    }
-  public String add(){
+    public String add(){
 		menuService.save(entity); 
-		return SUCCESS;
+		return null;
 	}
 	public String update(){
 		menuService.update(entity);
@@ -59,28 +42,19 @@ public class MenuAction extends BaseAction<Menu> implements SessionAware{
       return SUCCESS;
     }
 	public String list(){
-	  System.out.println(page); 
-	  System.out.println(rows);
-		//http://www.cnblogs.com/huozhicheng/archive/2011/09/27/2193605.html
-      List<Menu> menus = menuService.findAll();
-      data = ListToJson(menus);
-//      Map<String, Object> jsonMap = new HashMap<String, Object>();//定义map  
-//      jsonMap.put("total", 2);//total键 存放总记录数，必须的  
-//      jsonMap.put("rows", menus);//rows键 存放每页记录 list  
-//      data = JSONObject.fromObject(jsonMap);//格式化result   一定要是JSONObject 
-      return "list";
-    }
+		  System.out.println(page); 
+		  System.out.println(rows);
+		  System.out.println(sort);
+		  System.out.println(order);
+		  int total = menuService.getCount();
+	      List<Menu> menus = menuService.findAll(page,rows);
+	      data = ListToJson(menus,total);
+	      return "list";
+	    }
 	public Menu getModel() {
 		return entity;
 	}
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-	public JSONObject getData() {
-		return data;
-	}
-	public void setData(JSONObject data) {
-		this.data = data;
-	}
-	
 }

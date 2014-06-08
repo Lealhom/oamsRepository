@@ -38,7 +38,12 @@ public class BaseServiceImpl<T> implements BaseService<T>{
     public  T getById(String id){
       return  baseDAO.getById(id);
     }
-    public  List<T> findAll(){
-      return baseDAO.findAll();
-    }
+
+	public List<T> findAll(int page, int pageSize) {
+		return baseDAO.findAll(page,pageSize);
+	}
+
+	public int getCount() {
+		return baseDAO.getCount();
+	}
 }

@@ -15,6 +15,7 @@ public class MenuServiceImpl implements MenuService{
 	@Resource
 	private MenuDAO menuDAO;
 	public void save(Menu entity) {
+		menuDAO.save(entity);
 	}
 
 	public void update(Menu entity) {
@@ -30,9 +31,14 @@ public class MenuServiceImpl implements MenuService{
 		return null;
 	}
 
-	public List<Menu> findAll() {
-		List<Menu> menus = menuDAO.findAll();
+	public List<Menu> findAll(int page,int pageSize) {
+		List<Menu> menus = menuDAO.findAll(page,pageSize);
 		return menus;
 	}
+
+	public int getCount() {
+		return menuDAO.getCount();
+	}
+
 
 }

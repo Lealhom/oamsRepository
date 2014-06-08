@@ -8,5 +8,6 @@ public interface BaseService<T> {
   public abstract void delete(T entity);
   public abstract void deleteByIds(String ids[]);
   public abstract T getById(String id);
-  public abstract List<T> findAll();
+  public abstract List<T> findAll(int page, int rows);
+  public abstract int getCount(); 
 }

@@ -72,7 +72,7 @@ public class UserAction extends BaseAction<User> implements SessionAware{
       return SUCCESS;
     }
 	public String list(){
-      List<User> users = userService.findAll();
+      List<User> users = userService.findAll(0, 0);
       for(int i=0;i<users.size();i++){
         System.out.println(users.get(i).getId());
       }

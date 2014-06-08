@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="GBK"%>
 <%@include file="../included.jsp" %>
 <%
 	String path = request.getContextPath();
@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<base href="<%=basePath%>">
-		<title>èœå•ç®¡ç†</title>
+		<title>²Ëµ¥¹ÜÀí</title>
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
 		<meta http-equiv="expires" content="0">
@@ -38,73 +38,73 @@
 						 $('#table').datagrid('load');  
     				}, 
     				menu:'#option',  
-    				prompt:'è¯·è¾“å…¥æ•°æ®'  
+    				prompt:'ÇëÊäÈëÊı¾İ'  
 			});  
 			
-			// ç”Ÿæˆè¡¨æ ¼
+			// Éú³É±í¸ñ
 			$('#table').datagrid({
-				// è¡¨æ ¼çš„æ ‡é¢˜
-				title:'èœå•ç®¡ç†',
-				// è¡¨æ ¼æ ‡é¢˜å‰é¢çš„å›¾æ ‡
+				// ±í¸ñµÄ±êÌâ
+				title:'²Ëµ¥¹ÜÀí',
+				// ±í¸ñ±êÌâÇ°ÃæµÄÍ¼±ê
 				iconCls:'icon-save',
-				// å®½åº¦
+				// ¿í¶È
 				width:($(window).width()*0.97),
-				// é«˜åº¦
+				// ¸ß¶È
 				height:($(window).height()*0.96),
-				// çª—å£æ˜¯å¦å¯ä»¥æ”¶ç¼©
+				// ´°¿ÚÊÇ·ñ¿ÉÒÔÊÕËõ
 				collapsible:true,
-				// è¯·æ±‚æ•°æ®çš„url
+				// ÇëÇóÊı¾İµÄurl
 				url:'menu!list.action',
-				// è¡Œé˜´å½±ï¼Œä½†ç›®å‰çœ‹æ²¡æœ‰æ•ˆæœ
+				// ĞĞÒõÓ°£¬µ«Ä¿Ç°¿´Ã»ÓĞĞ§¹û
 				striped:true,
-				// æ‹åºåˆ—
-				sortName: 'code',
-				// çª—å£è‡ªåŠ¨å¤§å°
+				// ÅÄĞòÁĞ
+				sortName: 'orderNO',
+				// ´°¿Ú×Ô¶¯´óĞ¡
 				fit:false,
-				// æ’åºè§„åˆ™
+				// ÅÅĞò¹æÔò
 				sortOrder: 'desc',
-				// æœ¬åœ°æ’åºï¼Œä¸æ˜¯åœ¨æœåŠ¡å™¨ç«¯æ’
+				// ±¾µØÅÅĞò£¬²»ÊÇÔÚ·şÎñÆ÷¶ËÅÅ
 				remoteSort: false,
-				// è¿™ä¸ªå…¶å®å’Œcolumnå·®ä¸å¤šï¼Œåªä¸è¿‡æ˜¯æ”¾åœ¨è¡¨æ ¼çš„å·¦è¾¹
+				// Õâ¸öÆäÊµºÍcolumn²î²»¶à£¬Ö»²»¹ıÊÇ·ÅÔÚ±í¸ñµÄ×ó±ß
 				frozenColumns:[[
 	                {field:'ck',checkbox:true}
 				]],
-				// æ ‡é¢˜
+				// ±êÌâ
 				columns:[[
 					{title:'id',field:'id',width:150,align:'center',hidden:true},
-					{title:'èœå•åç§°',field:'name',width:150,align:'center',fit:true},
-					{title:'èœå•åœ°å€',field:'address',width:150,align:'center'},
-					{title:'èœå•å›¾æ ‡',field:'icon',width:150,align:'center'},
-					{title:'èœå•åºå·',field:'orderNO',width:150,align:'center'}
+					{title:'²Ëµ¥Ãû³Æ',field:'name',width:150,align:'center',fit:true},
+					{title:'²Ëµ¥µØÖ·',field:'address',width:150,align:'center'},
+					{title:'²Ëµ¥Í¼±ê',field:'icon',width:150,align:'center'},
+					{title:'²Ëµ¥ĞòºÅ',field:'orderNO',width:150,align:'center'}
 				]],
-				// å¾…é€‰åˆ†é¡µæ•°æ®æ¡æ•°
+				// ´ıÑ¡·ÖÒ³Êı¾İÌõÊı
 				pageList : [5,10,20],  
-				// æ¯é¡µæ˜¾ç¤ºæ•°æ®æ¡æ•°       
+				// Ã¿Ò³ÏÔÊ¾Êı¾İÌõÊı       
 				pageSize : 5,
-				// åˆ†é¡µ
+				// ·ÖÒ³
 				pagination:true,
-				// åœ¨å·¦ä¾§æ˜¯å¦æ˜¾ç¤ºè¡Œå·
+				// ÔÚ×ó²àÊÇ·ñÏÔÊ¾ĞĞºÅ
 				rownumbers:true,
-				// å·¥å…·æ 
+				// ¹¤¾ßÀ¸
 				toolbar:[{
 					id:'add',
-					// å·¥å…·æ¡ä¸Šæ˜¾ç¤ºçš„æ–‡å­—
-					text:'æ·»åŠ ',
-					// å›¾æ ‡
+					// ¹¤¾ßÌõÉÏÏÔÊ¾µÄÎÄ×Ö
+					text:'Ìí¼Ó',
+					// Í¼±ê
 					iconCls:'icon-add',
-					// å•å‡»å›¾æ ‡æ—¶æ˜¾ç¤ºçš„äº‹ä»¶
+					// µ¥»÷Í¼±êÊ±ÏÔÊ¾µÄÊÂ¼ş
 					handler:function(){
-						addPerson();
+						addMenu();
 					}
 				},{
 					id:'update',
-					text:'ä¿®æ”¹',
+					text:'ĞŞ¸Ä',
 					iconCls:'icon-edit',
 					handler:function(){
 						var rows=$('#table').datagrid('getSelections');
 						if(rows.length!=1)
 						{
-							$.messager.alert('æç¤º','è¯·é€‰ä¸­ä¸€æ¡æ‚¨è¦ä¿®æ”¹çš„è®°å½•'); 
+							$.messager.alert('ÌáÊ¾','ÇëÑ¡ÖĞÒ»ÌõÄúÒªĞŞ¸ÄµÄ¼ÇÂ¼'); 
 						}else
 						{
 							updatePerson();
@@ -112,7 +112,7 @@
 					}
 				},'-',{
 					id:'delete',
-					text:'åˆ é™¤',
+					text:'É¾³ı',
 					disabled:false,
 					iconCls:'icon-remove',
 					handler:function(){
@@ -120,7 +120,7 @@
 						var deleteVar="";
 						if(rows.length==0)
 						{
-							$.messager.alert('æç¤º','é€‰ä¸­è¦åˆ é™¤çš„è®°å½•');  
+							$.messager.alert('ÌáÊ¾','Ñ¡ÖĞÒªÉ¾³ıµÄ¼ÇÂ¼');  
 						}else
 						{
 							for(var i=0;i<rows.length;i++)
@@ -152,7 +152,7 @@
 					}
 				},{
        				id:'search',
-       				text:'å…¨éƒ¨æ•°æ®',
+       				text:'È«²¿Êı¾İ',
        				iconCls:'icon-search',
        				handler:function(){
        					 var queryParams = $('#table').datagrid('options').queryParams;  
@@ -164,48 +164,48 @@
 				}]
 			});
 			
-			// æ˜¾ç¤ºåˆ†é¡µä¿¡æ¯çš„åº•éƒ¨æ˜¾ç¤ºæ 
+			// ÏÔÊ¾·ÖÒ³ĞÅÏ¢µÄµ×²¿ÏÔÊ¾À¸
 			var p = $('#table').datagrid('getPager');
 			   
   			$(p).pagination({
-  				// æ¯é¡µæ˜¾ç¤ºå¤šå°‘æ¡è®°å½•
+  				// Ã¿Ò³ÏÔÊ¾¶àÉÙÌõ¼ÇÂ¼
 				pageSize: 5,
-       			// æ˜¾ç¤ºåˆ†é¡µä¿¡æ¯çš„æ–‡å­—   
-        		beforePageText: 'ç¬¬',
-        		afterPageText: 'é¡µ    å…± {pages} é¡µ',  
-        		displayMsg: 'å½“å‰æ˜¾ç¤º {from} - {to} æ¡è®°å½•   å…± {total} æ¡è®°å½•'
+       			// ÏÔÊ¾·ÖÒ³ĞÅÏ¢µÄÎÄ×Ö   
+        		beforePageText: 'µÚ',
+        		afterPageText: 'Ò³    ¹² {pages} Ò³',  
+        		displayMsg: 'µ±Ç°ÏÔÊ¾ {from} - {to} Ìõ¼ÇÂ¼   ¹² {total} Ìõ¼ÇÂ¼'
     		}); 
     		
     		$(".datagrid-toolbar").append($("#testa")); 
     		
-    		function addPerson(){
-    			// è®©é»˜è®¤çœ‹ä¸åˆ°çš„å±‚æ˜¾ç¤ºå‡ºæ¥   
+    		function addMenu(){
+    			// ÈÃÄ¬ÈÏ¿´²»µ½µÄ²ãÏÔÊ¾³öÀ´   
     		  	$('#dialog').show();
-    		  	// å¼¹å‡ºçª—å£
+    		  	// µ¯³ö´°¿Ú
                 $('#dialog').dialog({
-                	// æ ‡é¢˜
-                	title:'äººå‘˜æ·»åŠ çª—å£',
-                	// æ˜¯å¦æ˜¯å¯æŠ˜å çš„
+                	// ±êÌâ
+                	title:'²Ëµ¥Ìí¼Ó´°¿Ú',
+                	// ÊÇ·ñÊÇ¿ÉÕÛµşµÄ
                 	collapsible: true, 
-                	// æ˜¯å¦å¯æœ€å°åŒ–çª—å£
+                	// ÊÇ·ñ¿É×îĞ¡»¯´°¿Ú
 					minimizable: false, 
-					// æ˜¯å¦å¯æœ€å¤§åŒ–çª—å£
+					// ÊÇ·ñ¿É×î´ó»¯´°¿Ú
 					maximizable: true,
-					// å®½åº¦ 
+					// ¿í¶È 
 					width: 500, 
-					// é«˜åº¦
+					// ¸ß¶È
 					height: 300,
-					// æ¨¡å¼çª—å£
+					// Ä£Ê½´°¿Ú
 					modal:true,
-					// çª—å£ä¸‹çš„æŒ‰é’®
+					// ´°¿ÚÏÂµÄ°´Å¥
 					buttons:[{
-						text:'ä¿å­˜',
+						text:'±£´æ',
 						iconCls:'icon-ok',
 						handler:function(){
-							$('#addperson').submit();
+							$('#addMenu').submit();
 						}
 					},{
-						text:'å–æ¶ˆ',
+						text:'È¡Ïû',
 						iconCls:'icon-cancel',
 						handler:function(){
 							$('#dialog').dialog('close');
@@ -214,21 +214,21 @@
 				});   
               } 
               
-              // è¡¨å•æäº¤
-              $('#addperson').form({  
-              			// è¡¨å•æäº¤çš„è·¯å¾„
-    					url:"addPersonServlet",  
-    					// è¡¨å•æäº¤å‰
+              // ±íµ¥Ìá½»
+              $('#addMenu').form({  
+              			// ±íµ¥Ìá½»µÄÂ·¾¶
+    					url:"menu!add.action",  
+    					// ±íµ¥Ìá½»Ç°
     					onSubmit: function(){
-    						  // åˆ¤æ–­æ‰€æœ‰çš„éªŒè¯æ˜¯ä¸æ˜¯é€šè¿‡å•¦
+    						  // ÅĞ¶ÏËùÓĞµÄÑéÖ¤ÊÇ²»ÊÇÍ¨¹ıÀ²
     						  var isValid = $(this).form('validate');
 							  return isValid;
     					},  
-    					// å½“è¯·æ±‚æˆåŠŸä»¥å
+    					// µ±ÇëÇó³É¹¦ÒÔºó
     					success:function(data){  
     						  $('#dialog').dialog('close');
         					  $('#table').datagrid('load');
-        					  $('#addperson').form("clear");
+        					  $('#addMenu').form("clear");
    				 		}  
 			 }); 
 			 
@@ -236,33 +236,33 @@
 			 
 			 
 			 function updatePerson(){
-    			// è®©é»˜è®¤çœ‹ä¸åˆ°çš„å±‚æ˜¾ç¤ºå‡ºæ¥   
+    			// ÈÃÄ¬ÈÏ¿´²»µ½µÄ²ãÏÔÊ¾³öÀ´   
     		  	$('#updateDialog').show();
-    		  	// å¼¹å‡ºçª—å£
+    		  	// µ¯³ö´°¿Ú
                 $('#updateDialog').dialog({
-                	// æ ‡é¢˜
-                	title:'äººå‘˜ä¿®æ”¹çª—å£',
-                	// æ˜¯å¦æ˜¯å¯æŠ˜å çš„
+                	// ±êÌâ
+                	title:'ÈËÔ±ĞŞ¸Ä´°¿Ú',
+                	// ÊÇ·ñÊÇ¿ÉÕÛµşµÄ
                 	collapsible: true, 
-                	// æ˜¯å¦å¯æœ€å°åŒ–çª—å£
+                	// ÊÇ·ñ¿É×îĞ¡»¯´°¿Ú
 					minimizable: false, 
-					// æ˜¯å¦å¯æœ€å¤§åŒ–çª—å£
+					// ÊÇ·ñ¿É×î´ó»¯´°¿Ú
 					maximizable: true,
-					// å®½åº¦ 
+					// ¿í¶È 
 					width: 500, 
-					// é«˜åº¦
+					// ¸ß¶È
 					height: 300,
-					// æ¨¡å¼çª—å£
+					// Ä£Ê½´°¿Ú
 					modal:true,
-					// çª—å£ä¸‹çš„æŒ‰é’®
+					// ´°¿ÚÏÂµÄ°´Å¥
 					buttons:[{
-						text:'ä¿å­˜',
+						text:'±£´æ',
 						iconCls:'icon-ok',
 						handler:function(){
 							$('#updatePerson').submit();
 						}
 					},{
-						text:'å–æ¶ˆ',
+						text:'È¡Ïû',
 						iconCls:'icon-cancel',
 						handler:function(){
 							$('#updateDialog').dialog('close');
@@ -286,17 +286,17 @@
 					 
               } 
 			 
-			  // è¡¨å•æäº¤
+			  // ±íµ¥Ìá½»
               $('#updatePerson').form({  
-              			// è¡¨å•æäº¤çš„è·¯å¾„
+              			// ±íµ¥Ìá½»µÄÂ·¾¶
     					url:"updatePersonServlet",  
-    					// è¡¨å•æäº¤å‰
+    					// ±íµ¥Ìá½»Ç°
     					onSubmit: function(){
-    						  // åˆ¤æ–­æ‰€æœ‰çš„éªŒè¯æ˜¯ä¸æ˜¯é€šè¿‡å•¦
+    						  // ÅĞ¶ÏËùÓĞµÄÑéÖ¤ÊÇ²»ÊÇÍ¨¹ıÀ²
     						  var isValid = $(this).form('validate');
 							  return isValid;
     					},  
-    					// å½“è¯·æ±‚æˆåŠŸä»¥å
+    					// µ±ÇëÇó³É¹¦ÒÔºó
     					success:function(data){  
     					
     						 var mybasktball=$("#updatebasktball").attr("checked");
@@ -361,77 +361,77 @@
 		<div id="table"></div>
 
 		<div id="dialog" style="display: none;">
-			<form id="addperson" method="post">
+			<form id="addMenu" method="post">
 				<table align="center">
 					<tr>
 						<td>
-							å§“å:
+							²Ëµ¥Ãû³Æ:
 						</td>
 						<td>
 							<input class="easyui-validatebox" id="name" name="name"
-								data-options="required:true,validType:'length[3,10]',missingMessage:'è¾“å…¥æ•°æ®ä¸èƒ½ä¸ºç©º!',invalidMessage:'é•¿åº¦åœ¨3-10å­—ç¬¦ä¹‹é—´!',tipPosition:'right'"></input>
+								data-options="required:true,validType:'length[3,10]',missingMessage:'ÊäÈëÊı¾İ²»ÄÜÎª¿Õ!',invalidMessage:'³¤¶ÈÔÚ3-10×Ö·ûÖ®¼ä!',tipPosition:'right'"></input>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							åœ°å€:
+							²Ëµ¥µØÖ·:
 						</td>
 						<td>
 							<input class="easyui-validatebox" id="address" name="address"
-								data-options="required:true,validType:'length[8,25]',missingMessage:'è¾“å…¥æ•°æ®ä¸èƒ½ä¸ºç©º!',invalidMessage:'é•¿åº¦åœ¨8-25å­—ç¬¦ä¹‹é—´!',tipPosition:'right'"></input>
+								data-options="required:true,validType:'length[8,25]',missingMessage:'ÊäÈëÊı¾İ²»ÄÜÎª¿Õ!',invalidMessage:'³¤¶ÈÔÚ8-25×Ö·ûÖ®¼ä!',tipPosition:'right'"></input>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							å›½ç±:
+							²Ëµ¥Í¼±ê:
 						</td>
 						<td>
 							<select id="country" class="easyui-combobox" name="country"
 								style="width: 200px;">
 								<option>
-									ä¸­å›½
+									ÖĞ¹ú
 								</option>
 								<option>
-									è‹±å›½
+									Ó¢¹ú
 								</option>
 								<option>
-									ç¾å›½
+									ÃÀ¹ú
 								</option>
 							</select>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							æ€§åˆ«:
+							ÊÇ·ñÆôÓÃ:
 						</td>
 						<td>
 							<input type="radio" id="sex" name="sex" value="man"
 								checked="checked" />
-							ç”·
+							ÊÇ
 							<input type="radio" id="sex" name="sex" value="woman" />
-							å¥³
+							·ñ
 						</td>
 					</tr>
 					<tr>
 						<td>
-							å…´è¶£:
+							ĞËÈ¤:
 						</td>
 						<td>
 							<input type="checkbox" name="basktball" value="true" />
-							ç¯®çƒ
+							ÀºÇò
 							<input type="checkbox" name="football" value="true" />
-							è¶³çƒ
+							×ãÇò
 							<input type="checkbox" name="pingpang" value="true" />
-							ä¹’ä¹“çƒ
+							Æ¹ÅÒÇò
 						</td>
 					</tr>
 					<tr>
 						<td>
-							é‚®ç®±:
+							²Ëµ¥ĞòºÅ:
 						</td>
 						<td>
 							<input class="easyui-validatebox" id="email" name="email"
-								data-options="required:true,validType:'email',missingMessage:'è¾“å…¥æ•°æ®ä¸èƒ½ä¸ºç©º!',invalidMessage:'è¯·è¾“å…¥åˆæ³•é‚®ç®±!',tipPosition:'right'"></input>
+								data-options="required:true,validType:'email',missingMessage:'ÊäÈëÊı¾İ²»ÄÜÎª¿Õ!',invalidMessage:'ÇëÊäÈëºÏ·¨ÓÊÏä!',tipPosition:'right'"></input>
 						</td>
 					</tr>
 				</table>
@@ -443,87 +443,87 @@
 				<table align="center">
 					<tr>
 						<td>
-							ç¼–å·:
+							±àºÅ:
 						</td>
 						<td>
 							<input class="easyui-validatebox" id="code" name="code"
 								readonly="readonly"
-								data-options="required:true,missingMessage:'è¾“å…¥æ•°æ®ä¸èƒ½ä¸ºç©º!',tipPosition:'right'"></input>
+								data-options="required:true,missingMessage:'ÊäÈëÊı¾İ²»ÄÜÎª¿Õ!',tipPosition:'right'"></input>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							å§“å:
+							ĞÕÃû:
 						</td>
 						<td>
 							<input class="easyui-validatebox" id="updatename" name="name"
-								data-options="required:true,validType:'length[3,10]',missingMessage:'è¾“å…¥æ•°æ®ä¸èƒ½ä¸ºç©º!',invalidMessage:'é•¿åº¦åœ¨3-10å­—ç¬¦ä¹‹é—´!',tipPosition:'right'"></input>
+								data-options="required:true,validType:'length[3,10]',missingMessage:'ÊäÈëÊı¾İ²»ÄÜÎª¿Õ!',invalidMessage:'³¤¶ÈÔÚ3-10×Ö·ûÖ®¼ä!',tipPosition:'right'"></input>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							åœ°å€:
+							µØÖ·:
 						</td>
 						<td>
 							<input class="easyui-validatebox" id="updateaddress"
 								name="address"
-								data-options="required:true,validType:'length[8,25]',missingMessage:'è¾“å…¥æ•°æ®ä¸èƒ½ä¸ºç©º!',invalidMessage:'é•¿åº¦åœ¨8-25å­—ç¬¦ä¹‹é—´!',tipPosition:'right'"></input>
+								data-options="required:true,validType:'length[8,25]',missingMessage:'ÊäÈëÊı¾İ²»ÄÜÎª¿Õ!',invalidMessage:'³¤¶ÈÔÚ8-25×Ö·ûÖ®¼ä!',tipPosition:'right'"></input>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							å›½ç±:
+							¹ú¼®:
 						</td>
 						<td>
 							<select id="updatecountry" class="easyui-combobox" name="country"
 								style="width: 200px;">
 								<option>
-									ä¸­å›½
+									ÖĞ¹ú
 								</option>
 								<option>
-									è‹±å›½
+									Ó¢¹ú
 								</option>
 								<option>
-									ç¾å›½
+									ÃÀ¹ú
 								</option>
 							</select>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							æ€§åˆ«:
+							ĞÔ±ğ:
 						</td>
 						<td>
 							<input type="radio" id="sex1" name="updatesex" value="man"
 								checked="checked" />
-							ç”·
+							ÄĞ
 							<input type="radio" id="sex2" name="updatesex" value="woman" />
-							å¥³
+							Å®
 						</td>
 					</tr>
 					<tr>
 						<td>
-							å…´è¶£:
+							ĞËÈ¤:
 						</td>
 						<td>
 							<input type="checkbox" id="updatebasktball" name="basktball"
 								value="true" />
-							ç¯®çƒ
+							ÀºÇò
 							<input type="checkbox" id="updatefootball" name="football"
 								value="true" />
-							è¶³çƒ
+							×ãÇò
 							<input type="checkbox" id="updatepingpang" name="pingpang"
 								value="true" />
-							ä¹’ä¹“çƒ
+							Æ¹ÅÒÇò
 						</td>
 					</tr>
 					<tr>
 						<td>
-							é‚®ç®±:
+							ÓÊÏä:
 						</td>
 						<td>
 							<input class="easyui-validatebox" id="updateemail" name="email"
-								data-options="required:true,validType:'email',missingMessage:'è¾“å…¥æ•°æ®ä¸èƒ½ä¸ºç©º!',invalidMessage:'è¯·è¾“å…¥åˆæ³•é‚®ç®±!',tipPosition:'right'"></input>
+								data-options="required:true,validType:'email',missingMessage:'ÊäÈëÊı¾İ²»ÄÜÎª¿Õ!',invalidMessage:'ÇëÊäÈëºÏ·¨ÓÊÏä!',tipPosition:'right'"></input>
 						</td>
 					</tr>
 				</table>
@@ -534,10 +534,10 @@
 			<input id="message"></input>
 			<div id="option" style="width: 120px">
 				<div data-options="name:'name'">
-					æŒ‰å§“åæŸ¥è¯¢
+					°´²Ëµ¥Ãû²éÑ¯
 				</div>
 				<div data-options="name:'address'">
-					æŒ‰åœ°å€æŸ¥è¯¢
+					°´²Ëµ¥µØÖ·²éÑ¯
 				</div>
 			</div>
 		</div>
