@@ -19,12 +19,15 @@ public class MenuServiceImpl implements MenuService{
 	}
 
 	public void update(Menu entity) {
+		menuDAO.update(entity);
 	}
 
 	public void delete(Menu entity) {
+		System.out.println("asdf");
 	}
 
 	public void deleteByIds(String[] ids) {
+		menuDAO.deleteByIds(ids);
 	}
 
 	public Menu getById(String id) {

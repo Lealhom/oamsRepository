@@ -6,8 +6,6 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import net.sf.json.JSONObject;
-
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.interceptor.SessionAware;
@@ -25,32 +23,39 @@ import com.oams.service.MenuService;
 public class MenuAction extends BaseAction<Menu> implements SessionAware{
     @Resource
 	private MenuService menuService;
+    
     private Map<String, Object> session;
+    
     private Menu entity = new Menu();
 	private static Logger logger = LoggerFactory.getLogger(MenuAction.class);
 	private static final long serialVersionUID = 4059566892230982927L;
+	
     public String add(){
 		menuService.save(entity); 
 		return null;
 	}
+    
 	public String update(){
 		menuService.update(entity);
-	  return SUCCESS;
+	  return null;
 	}
+	
 	public String delete(){
-		menuService.delete(entity);
-      return SUCCESS;
+		System.out.println(ids);
+		String idsArray[] = ids.split(",");
+		System.out.println(menuService);
+		//menuService.delete(entity);
+		menuService.deleteByIds(idsArray); 
+      return null;
     }
+	
 	public String list(){
-		  System.out.println(page); 
-		  System.out.println(rows);
-		  System.out.println(sort);
-		  System.out.println(order);
 		  int total = menuService.getCount();
 	      List<Menu> menus = menuService.findAll(page,rows);
 	      data = ListToJson(menus,total);
 	      return "list";
 	    }
+	
 	public Menu getModel() {
 		return entity;
 	}

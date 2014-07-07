@@ -24,17 +24,13 @@ import com.oams.service.UserService;
 			
 		 })
 public class UserAction extends BaseAction<User> implements SessionAware{
-	/*	
-	 *  @Resource(name="xxx")，默认ByName，按Name找不着则ByType，如果找到多个，则会报错
-	 * 
-	 * 	@Autowired默认是ByType，默认情况下要求依赖注入的Bean必须存在，如果要允许为空，则应该使用：@Autowired(required=false) 
-	 *  @Autowired也可以设置成ByName，配置如下：
-	 *  @Autowired
-	 *  @Qualifier("xxx") 
-	 *  
-	 *  @Inject与@Autowired类似，不过不属于spring的注解，导入的是 import javax.inject.Inject;
+	/*
+	 *  * @Resource(name="xxx")锛岄粯璁yName锛屾寜Name鎵句笉鐫�鍒橞yType锛屽鏋滄壘鍒板涓紝鍒欎細鎶ラ敊 * *
+	 * @Autowired榛樿鏄疊yType锛岄粯璁ゆ儏鍐典笅瑕佹眰渚濊禆娉ㄥ叆鐨凚ean蹇呴』瀛樺湪锛屽鏋滆鍏佽涓虹┖锛屽垯搴旇浣跨敤锛欯Autowired(required=false) *
+	 * @Autowired涔熷彲浠ヨ缃垚ByName锛岄厤缃涓嬶細 * @Autowired * @Qualifier("xxx") * *
+	 * @Inject涓嶡Autowired绫讳技锛屼笉杩囦笉灞炰簬spring鐨勬敞瑙ｏ紝瀵煎叆鐨勬槸 import javax.inject.Inject;
 	 */
-    @Resource
+ @Resource
 	private UserService userService;
     private Map<String, Object> session;
     private User entity = new User();
@@ -47,12 +43,10 @@ public class UserAction extends BaseAction<User> implements SessionAware{
 		String password = entity.getPassword();
 		User user = userService.login(username,password);
 		if(user!=null){
-			System.out.println(user.getUsername());
-			System.out.println(user.getPassword());
 			session.put("username", user.getUsername());
 			//session.remove("loginMsg");
 		}else{
-			session.put("loginMsg", "用户名或密码错误");
+			session.put("loginMsg", "鐢ㄦ埛鍚嶆垨瀵嗙爜閿欒");
 			return "loginFail";
 		}
 		

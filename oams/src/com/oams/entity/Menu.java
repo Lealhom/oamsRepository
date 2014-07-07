@@ -12,10 +12,10 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name = "t_menu")
 public class Menu{
 	private String id;
-	private String name;//菜单名称
-	private String icon;//菜单图标
-	private String address;//菜单地址
-	private int orderNO;//菜单序号
+	private String name;
+	private String icon;
+	private String address;
+	private int orderNO;
 	
 	@Id
 	@GeneratedValue(generator = "system-uuid")

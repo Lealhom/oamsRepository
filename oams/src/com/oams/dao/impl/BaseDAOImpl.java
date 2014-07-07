@@ -1,5 +1,6 @@
 package com.oams.dao.impl;
 
+import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.sql.SQLException;
 import java.util.List;
@@ -34,11 +35,30 @@ public class BaseDAOImpl<T> implements BaseDAO<T> {
   }
 
   public void delete(Object entity) {
+	  System.out.println("进入delete方法");
     hibernateTemplate.delete(entity);
   }
 
   public void deleteByIds(String[] ids) {
+	  for (Object id : ids) {
+			hibernateTemplate.delete(find(entityType, id));
+		}
   }
+  
+	public void delete(Class<T> entityClass, Object entityId) {
+		delete(entityClass, new Object[] { entityId });
+	}
+
+	public void delete(Class<T> entityClass, Object[] entityIds) {
+		for (Object id : entityIds) {
+			hibernateTemplate.delete(find(entityClass, entityIds));
+		}
+	}
+
+	public  T find(Class<T> entityClass, Object entityId) {
+		return (T) hibernateTemplate.get(entityClass, (Serializable) entityId);
+	}
+  
 
   public T getById(String id) {
     hibernateTemplate.find(id);

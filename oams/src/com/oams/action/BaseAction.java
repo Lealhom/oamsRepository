@@ -10,6 +10,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 public abstract class BaseAction<T> extends ActionSupport implements ModelDriven<T>{
 	private static final long serialVersionUID = 1L;
+	protected String ids;
 	protected int page;
 	protected int rows;
 	protected int total;
@@ -24,12 +25,11 @@ public abstract class BaseAction<T> extends ActionSupport implements ModelDriven
 //	}
 	
 	protected JSONObject ListToJson(List<?> list,int total){
-		Map<String, Object> jsonMap = new HashMap<String, Object>();//¶¨Òåmap  
-	    jsonMap.put("total", total);//total¼ü ´æ·Å×Ü¼ÇÂ¼Êý£¬±ØÐëµÄ  
-	    jsonMap.put("rows", list);//rows¼ü ´æ·ÅÃ¿Ò³¼ÇÂ¼ list  
-	    return JSONObject.fromObject(jsonMap);//¸ñÊ½»¯result   Ò»¶¨ÒªÊÇJSONObject 
+		Map<String, Object> jsonMap = new HashMap<String, Object>();//ï¿½ï¿½ï¿½ï¿½map  
+	    jsonMap.put("total", total);//totalï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ü¼ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
+	    jsonMap.put("rows", list);//rowsï¿½ï¿½ ï¿½ï¿½ï¿½Ã¿Ò³ï¿½ï¿½Â¼ list  
+	    return JSONObject.fromObject(jsonMap);//ï¿½ï¿½Ê½ï¿½ï¿½result   Ò»ï¿½ï¿½Òªï¿½ï¿½JSONObject 
 	}
-	
 	
 	public int getPage() {
 		return page;
@@ -70,11 +70,20 @@ public abstract class BaseAction<T> extends ActionSupport implements ModelDriven
 	public void setOrder(String order) {
 		this.order = order;
 	}
+	
 	public JSONObject getData() {
 		return data;
 	}
 	public void setData(JSONObject data) {
 		this.data = data;
+	}
+	
+	public String getIds() {
+		return ids;
+	}
+	
+	public void setIds(String ids) {
+		this.ids = ids;
 	}
 	
 }
