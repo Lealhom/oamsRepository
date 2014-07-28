@@ -174,6 +174,11 @@
     		$(".datagrid-toolbar").append($("#testa")); 
     		
     		function addMenu(){
+    			//清空表单信息
+    			//$('#addMenu').form("clear");
+    			//$('#addMenu')[0].reset();  
+    			$(":input","#addMenu").not(":button",":submit",":reset","[type='hidden']").val("").removeAttr("checked").removeAttr("selected");
+    			
     			// 让默认看不到的层显示出来   
     		  	$('#dialog').show();
     		  	// 弹出窗口
@@ -224,6 +229,7 @@
               } 
 			 actions="menu!update.action";
 			 function updatePerson(){
+				 
 				// 让默认看不到的层显示出来   
 	    		  	$('#dialog').show();
 	    		  	// 弹出窗口
@@ -258,7 +264,6 @@
 								        success : function(data) {
 								        	  $('#dialog').dialog('close');
 				        					  $('#table').datagrid('load');
-				        					  $('#addMenu').form("clear");
 								        }
 									});
 								}

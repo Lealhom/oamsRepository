@@ -1,13 +1,6 @@
 var globalVar = $.extend({}, globalVar);
 /**
- * @author 鸵鸟
- * 
- * @requires jQuery,EasyUI,jQuery cookie plugin
- * 
- * 更换EasyUI主题的方法
- * 
- * @param themeName
- *            主题名称
+ * 鎹㈣偆鍔熻兘
  */
 globalVar.changeTheme = function(themeName) {
 	var $easyuiTheme = $('#easyuiTheme');
@@ -27,3 +20,10 @@ globalVar.changeTheme = function(themeName) {
 		expires : 365
 	});
 };
+
+function formatCombobox(value) {
+	for ( var i = 0; i < arguments.length - 1; i++) {
+		value = value.replace("{" + i + "}", arguments[i + 1]);
+	}
+	return value;
+}

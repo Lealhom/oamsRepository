@@ -31,6 +31,7 @@
 	<div title="系统管理" data-options="iconCls:'icon-ok'">
 				<ul id="nav">
 						<li><a class="easyui-linkbutton" data-options="iconCls:'icon-ok'" plain="true" href="javascript:void(0);"  onclick="addTab('菜单管理','/jsp/menu.jsp','icon-ok')">菜单管理</a></li>
+						<li><a class="easyui-linkbutton" data-options="iconCls:'icon-ok'" plain="true" href="javascript:void(0);"  onclick="addTab('菜单管理1','/jsp/menu1.jsp','icon-ok')">菜单管理1</a></li>
 						<li><a class="easyui-linkbutton" data-options="iconCls:'icon-ok'" plain="true" href="javascript:void(0);"  onclick="addTab('用户管理2','/jsp/user.jsp','icon-ok')">用户管理2</a></li>
 				</ul>
 			</div>
